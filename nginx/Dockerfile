@@ -1,4 +1,7 @@
 FROM nginx:stable
+
+RUN mkdir /etc/nginx/certs
+
 LABEL org.freenas.interactive="false"                                         \
       org.freenas.version="2"                                                 \
       org.freenas.upgradeable="false"                                         \
@@ -11,11 +14,11 @@ LABEL org.freenas.interactive="false"                                         \
               \"descr\": \"html content\"		                              \
           },                                                                  \
           {								                        \
-              \"name\": \"/etc/nginx/conf.d/custom.conf\",				\
-              \"descr\": \"custom conf\"		                              \
+              \"name\": \"/etc/nginx/conf.d\",				\
+              \"descr\": \"Configuration Directory\"		                              \
           },                                                                  \
           {								                        \
-              \"name\": \"/etc/nginx/conf.d/default.conf\",				\
-              \"descr\": \"default content if interested for port 80\"		\
+              \"name\": \"/etc/nginx/certs\",				\
+              \"descr\": \"Certificate directory\"		\
           }                                                                   \
           ]"
