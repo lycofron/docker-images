@@ -14,35 +14,35 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/
 
 WORKDIR /dehydrated
 
-CMD ./dehydrated --register --accept-terms -f ./config/config && ./dehydrated -f ./config/config -c
+CMD "./bin/sh", "-c", "/dehydrated/dehydrated --register --accept-terms -f /dehydrated/config/config && /dehydrated/dehydrated -f /dehydrated/config/config -c"
 
 VOLUME /dehydrated/certs
 VOLUME /dehydrated/config
 
-LABEL org.freenas.interactive="false"                                         \
-      org.freenas.version="1"                                                 \
-      org.freenas.upgradeable="false"                                         \
-      org.freenas.expose-ports-at-host="false"                                 \
-      org.freenas.autostart="false"                                            \
-      org.freenas.volumes="[						                  \
-          {								                        \
-              \"name\": \"/dehydrated/config\",				\
-              \"descr\": \"Configuration Directory\"		                              \
-          },                                                                  \
-          {								                        \
-              \"name\": \"/dehydrated/certs\",				\
+LABEL org.freenas.interactive="false"                 \
+      org.freenas.version="1"                         \
+      org.freenas.upgradeable="false"                 \
+      org.freenas.expose-ports-at-host="false"        \
+      org.freenas.autostart="false"                   \
+      org.freenas.volumes="[						  \
+          {								              \
+              \"name\": \"/dehydrated/config\",			\
+              \"descr\": \"Configuration Directory\"	\
+          },                                            \
+          {								                \
+              \"name\": \"/dehydrated/certs\",			\
               \"descr\": \"Certificate directory\"		\
-          }                                                                   \
-          ]" \
-       org.freenas.settings="[      						                        \
-          {								                                              \
-              \"env\": \"CF_EMAIL\",					                                \
-              \"descr\": \"Cloudflare - Login email\",	           		\
-              \"optional\": true					                              \
-          },								                                            \
-          {								                                              \
-              \"env\": \"CF_KEY\",					                        \
-              \"descr\": \"Cloudflare API key\",	              			\
-              \"optional\": false					                              \
-          }								                                            \
+          }                                             \
+          ]" \                                          
+       org.freenas.settings="[      					\
+          {								                \
+              \"env\": \"CF_EMAIL\",					\
+              \"descr\": \"Cloudflare - Login email\",	\
+              \"optional\": true					    \
+          },								            \
+          {								                \
+              \"env\": \"CF_KEY\",					    \
+              \"descr\": \"Cloudflare API key\",	    \
+              \"optional\": false					    \
+          }								                \
       ]"
