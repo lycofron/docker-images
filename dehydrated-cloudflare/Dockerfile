@@ -14,7 +14,7 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/
 
 WORKDIR /dehydrated
 
-CMD "./bin/sh", "-c", "/dehydrated/dehydrated --register --accept-terms -f /dehydrated/config/config && /dehydrated/dehydrated -f /dehydrated/config/config -c"
+CMD "/dehydrated/dehydrated --register --accept-terms -f /dehydrated/config/config && /dehydrated/dehydrated -f /dehydrated/config/config -c"
 
 VOLUME /dehydrated/certs
 VOLUME /dehydrated/config
