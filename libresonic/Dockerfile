@@ -1,4 +1,4 @@
-FROM linuxserver/libresonic:latest
+FROM binhex/arch-libresonic:v6.2-01
 LABEL org.freenas.interactive="false" \
       org.freenas.version="1" \
       org.freenas.upgradeable="false" \
